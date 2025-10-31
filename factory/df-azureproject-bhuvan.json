@@ -1,0 +1,9 @@
+{
+	"name": "df-azureproject-bhuvan",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "b512a6ae-b0a2-4bba-b312-4c01dd137bb7",
+		"tenantId": "3ec63919-829c-439d-83c1-039f932eed41"
+	}
+}
