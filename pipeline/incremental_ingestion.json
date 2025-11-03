@@ -67,9 +67,15 @@
 						"referenceName": "parquet_dynamic",
 						"type": "DatasetReference",
 						"parameters": {
-							"container": "dbo",
-							"folder": "DimUser",
-							"file": "updated_at"
+							"container": "bronze",
+							"folder": {
+								"value": "@pipeline().parameters.table",
+								"type": "Expression"
+							},
+							"file": {
+								"value": "@concat(pipeline().parameters.table,'_',variables('current'))",
+								"type": "Expression"
+							}
 						}
 					}
 				]
@@ -166,10 +172,14 @@
 										"folder": {
 											"value": "@pipeline().parameters.table",
 											"type": "Expression"
+										},
+										"file": {
+											"value": "@concat(pipeline().parameters.table,'_',variables('current'))",
+											"type": "Expression"
 										}
 									}
 								},
-								"enableLogging": true,
+								"enableLogging": false,
 								"storeSettings": {
 									"type": "AzureBlobFSReadSettings",
 									"recursive": true,
